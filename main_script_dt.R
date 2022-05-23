@@ -4,6 +4,7 @@ library(dplyr)
 library(here)
 library(tidyverse)
 library(magrittr)
+library(RCurl)
 
 # Load file for General Table
 generalData <- read_csv(file = here::here("data", "ictr_table_general.csv"))
@@ -13,7 +14,7 @@ generalData
 ICTR_general <- generalData %>%
   DT::datatable(
     style = 'auto',
-    colnames = c('Primary Link' = 2, 'Unique Factor' = 4, 'Types of Data' = 5, 'Summary' = 11),
+    colnames = c('Link' = 2, 'Unique Factor' = 4, 'Types of Data' = 5, 'Summary' = 11),
     rownames = FALSE,
     caption = 'General Informatics Tools',
     escape = FALSE,
@@ -22,6 +23,7 @@ ICTR_general <- generalData %>%
     options = list(autoWidth = TRUE, pageLength = 10, scrollY = TRUE,
                    scrollX = TRUE, scrollCollapse = TRUE, fillContainer = TRUE,
                    columnDefs = list(list(width = '600px', targets = c(10)),
+                                     list(width = '400px', targets = c(3)),
                                      list(width = '200px', targets = "_all")),
                    initComplete = JS(
                      "function(settings, json) {",
@@ -42,7 +44,7 @@ ICTR_omics <- omicsData %>%
   DT::datatable(
     style = 'auto',
     width = '200%',
-    colnames = c('Primary Link' = 2, 'Unique Factor' = 4, 'Types of Data' = 5, 'Summary' = 10),
+    colnames = c('Link' = 2, 'Unique Factor' = 4, 'Types of Data' = 5, 'Summary' = 10),
     rownames = FALSE,
     caption = 'Omics Informatics Tools',
     escape = FALSE,
@@ -51,6 +53,7 @@ ICTR_omics <- omicsData %>%
     options = list(autoWidth = TRUE, pageLength = 10, scrollY = TRUE,
                    scrollX = TRUE, scrollCollapse = TRUE, fillContainer = TRUE,
                    columnDefs = list(list(width = '600px', targets = c(9)),
+                                     list(width = '400px', targets = c(3)),
                                      list(width = '200px', targets = "_all")),
                    initComplete = JS(
                      "function(settings, json) {",
@@ -71,7 +74,7 @@ ICTR_imaging <- imagingData %>%
   DT::datatable(
     style = 'auto',
     width = '200%',
-    colnames = c('Primary Link' = 2, 'Unique Factor' = 4, 'Types of Data' = 5, 'Summary' = 10),
+    colnames = c('Link' = 2, 'Unique Factor' = 4, 'Types of Data' = 5, 'Summary' = 10),
     rownames = FALSE,
     caption = 'Imaging Informatics Tools',
     escape = FALSE,
@@ -80,6 +83,7 @@ ICTR_imaging <- imagingData %>%
     options = list(autoWidth = TRUE, pageLength = 10, scrollY = TRUE,
                    scrollX = TRUE, scrollCollapse = TRUE, fillContainer = TRUE,
                    columnDefs = list(list(width = '600px', targets = c(9)),
+                                     list(width = '400px', targets = c(3)),
                                      list(width = '200px', targets = "_all")),
                    initComplete = JS(
                      "function(settings, json) {",
