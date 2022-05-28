@@ -1,0 +1,68 @@
+---
+title: "DT Table Imaging"
+author: "Pratik"
+date: '2022-05-24'
+output: html_document
+---
+#Load DT, dplyr
+```{r,echo=FALSE}
+library(DT)
+library(dplyr)
+library(here)
+library(tidyverse)
+library(magrittr)
+library(RCurl)
+```
+
+# Load file for Imaging Table
+```{r,echo=FALSE}
+generalData <- read_csv(file = here::here("ICTR Project","ictr_table_imaging.csv"))
+generalData
+
+generalData %<>%
+  mutate(`Link (Hyperlinked Over Name)` = paste0('<a href="',`Link (Hyperlinked Over Name)`,'"',' target="_blank"','>', Name,'</a>'),
+         `Documentation Link` = paste0('<a href="',`Documentation Link`,'"',' target="_blank"','>', "Documentation", '</a>'),
+         Publications = paste0('<a href="',Publications,'"',' target="_blank"','>', "Publications",'<br></br>', '</a>'))
+
+generalData %<>%
+  mutate(Platform = paste0(Name, ":",'<br></br>',`Link (Hyperlinked Over Name)`,'<br></br>', `Documentation Link`, '<br></br>', Publications))
+
+generalData %<>%
+  relocate(Platform, .after = `Link (Hyperlinked Over Name)`)
+
+trimmedData <- generalData[ -c(1,2,9,11) ]
+```
+
+# Create a Imaging Table
+```{r,echo=FALSE}
+ICTR_imaging <- trimmedData %>%
+  DT::datatable(
+    style = 'auto',
+    colnames = c('Unique Factor' = 2, 'Types of Data' = 3,'Interface (CL, GUI)' = 6,
+                 'Summary' = 8),
+    rownames = FALSE,
+    caption = 'Imaging Informatics Tools',
+    escape = FALSE,
+    filter = "top",
+    #escape = FALSE,
+    extensions = list("Scroller"),
+    options = list(autoWidth = TRUE, pageLength = 10, scrollY = TRUE,
+                   scrollX = TRUE, scrollCollapse = TRUE, fillContainer = TRUE,
+                   columnDefs = list(list(width = '600px', targets = c(7)),
+                                     list(width = '100px', targets = c(4,5)),
+                                     list(width = '400px', targets = c(2)),
+                                     list(width = '200px', targets = "_all")),
+                   initComplete = JS(
+                     "function(settings, json) {",
+                     "$('body').css({'font-family': 'Calibri'});",
+                     "$(this.api().table().header()).css({'backgroundColor': '#3f546f'});",
+                     "$(this.api().table().header()).css({'color': '#fff'});",
+                     "}"))
+  )
+```
+
+# Print the DT Table
+```{r}
+ICTR_imaging
+```
+
