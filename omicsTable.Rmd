@@ -37,7 +37,8 @@ generalData %<>%
   relocate(Platform, .after = `Link (Hyperlinked Over Name)`)
 
 # Create a trimmed version of the data by removing the non-consolidated columns. 
-trimmedData <- generalData[ -c(1,2,8,10) ]
+trimmedData <- generalData[ -c(1,2,8,10) ]   
+trimmedData
 ```
 
 
