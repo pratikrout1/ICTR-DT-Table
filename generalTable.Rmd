@@ -18,7 +18,7 @@ library(RCurl)
 
 ```{r,echo=FALSE,results='hide',message=FALSE}
 # Load file for General Table
-generalData <- read_csv(file = here::here("ICTR Project","ictr_table_general.csv"))
+generalData <- read_csv(file = here::here("ictr_table_general.csv"))
 generalData
 
 # Mutate the tibble to alter three of the columns

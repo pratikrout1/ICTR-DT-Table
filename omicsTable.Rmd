@@ -17,7 +17,7 @@ library(RCurl)
 
 ```{r,echo=FALSE,results='hide',message=FALSE}
 # Load file for Imaging Table
-generalData <- read_csv(file = here::here("ICTR Project","ictr_table_omics.csv"))
+generalData <- read_csv(file = here::here("ictr_table_omics.csv"))
 generalData
 
 # Mutate the tibble to alter three of the columns
