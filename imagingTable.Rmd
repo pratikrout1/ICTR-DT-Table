@@ -37,7 +37,7 @@ generalData %<>%
   relocate(Platform, .after = `Link (Hyperlinked Over Name)`)
 
 # Create a trimmed version of the data by removing the non-consolidated columns. 
-trimmedData <- generalData[ -c(1,2,9,11) ]
+trimmedData <- generalData[ -c(1,2,8,10) ]
 ```
 
 ```{r,echo=FALSE,results='hide',message=FALSE}
@@ -45,8 +45,8 @@ trimmedData <- generalData[ -c(1,2,9,11) ]
 ICTR_imaging <- trimmedData %>%
   DT::datatable(
     style = 'auto',
-    colnames = c('Unique Factor' = 3, 'Types of Data' = 4,'Interface (CL, GUI)' = 6,
-                 'Summary' = 8),
+    colnames = c('Unique Factor' = 2, 'Types of Data' = 3,
+                 'Summary' = 7),
     rownames = FALSE,
     caption = 'Imaging Informatics Tools',
     escape = FALSE,
