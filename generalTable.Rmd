@@ -52,10 +52,10 @@ ICTR_general <- trimmedData %>%
     filter = "top",
     #escape = FALSE,
     extensions = list("Scroller"),
-    options = list(autoWidth = TRUE, pageLength = 10, scrollY = TRUE,
+    options = list(autoWidth = FALSE, pageLength = 10, scrollY = TRUE,
                    scrollX = TRUE, scrollCollapse = TRUE, fillContainer = TRUE,
                    columnDefs = list(list(width = '600px', targets = c(7)),
-                                     list(width = '100px', targets = c(4,5)),
+                                     list(width = '100px', targets = c(0,4,5)),
                                      list(width = '400px', targets = c(2)),
                                      list(width = '200px', targets = "_all")),
                    initComplete = JS(
