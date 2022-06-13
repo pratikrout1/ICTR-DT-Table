@@ -44,6 +44,7 @@ trimmedData <- generalData[ -c(1,2,9,11) ]
 ICTR_general <- trimmedData %>%
   DT::datatable(
     style = 'auto',
+    width = '100%',
     colnames = c('Unique Factor' = 2, 'Types of Data' = 3,'Interface (CL, GUI)' = 6,
                  'Summary' = 8),
     rownames = FALSE,
