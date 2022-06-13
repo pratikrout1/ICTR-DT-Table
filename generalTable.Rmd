@@ -53,8 +53,8 @@ ICTR_general <- trimmedData %>%
     filter = "top",
     #escape = FALSE,
     extensions = list("Scroller"),
-    options = list(scrollX = TRUE, autoWidth = TRUE, pageLength = 10, scrollY = '2000px',
-                   fixedColumns = TRUE, scrollCollapse = TRUE, fillContainer = TRUE,
+    options = list(scrollX = TRUE, autoWidth = TRUE, pageLength = 10,
+                   scrollCollapse = TRUE, fillContainer = TRUE,
                    columnDefs = list(list(width = '600px', targets = c(7)),
                                      list(width = '100px', targets = c(0,4,5)),
                                      list(width = '400px', targets = c(2)),
@@ -69,7 +69,7 @@ ICTR_general <- trimmedData %>%
 ```
 
 # Print the DT Table
-```{r}
+```{r,echo=FALSE}
 ICTR_general
 ```
 

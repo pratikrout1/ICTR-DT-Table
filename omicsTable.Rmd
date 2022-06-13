@@ -45,6 +45,7 @@ trimmedData
 ICTR_omics <- trimmedData %>%
   DT::datatable(
     style = 'auto',
+    width="100%",
     colnames = c('Unique Factor' = 2, 'Types of Data' = 3,
                  'Summary' = 7),
     rownames = FALSE,
@@ -69,6 +70,6 @@ ICTR_omics <- trimmedData %>%
 ```
 
 # Print the DT Table
-```{r}
+```{r,echo=FALSE}
 ICTR_omics
 ```

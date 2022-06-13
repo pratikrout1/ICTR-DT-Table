@@ -43,6 +43,7 @@ trimmedData <- generalData[ -c(1,2,8,10) ]
 ICTR_imaging <- trimmedData %>%
   DT::datatable(
     style = 'auto',
+    width="100%",
     colnames = c('Unique Factor' = 2, 'Types of Data' = 3,
                  'Summary' = 7),
     rownames = FALSE,
@@ -67,6 +68,6 @@ ICTR_imaging <- trimmedData %>%
 ```
 
 # Print the DT Table
-```{r}
+```{r,echo=FALSE}
 ICTR_imaging
 ```
